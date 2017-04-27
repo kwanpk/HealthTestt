@@ -1,4 +1,4 @@
-package comsci.kwan.healthtest;
+package comsci.kwan.healthtest.healthyshop;
 
 import android.content.Intent;
 import android.os.StrictMode;
@@ -19,6 +19,7 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import comsci.kwan.healthtest.R;
 import comsci.kwan.healthtest.menu.DrinkTable;
 import comsci.kwan.healthtest.menu.OrderTable;
 import comsci.kwan.healthtest.menu.UserTable;
@@ -110,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
                     switch (intTimes){
                         case 1:
                             //update drinktable
-                            String strid = jsonObject.getString("ID");
+                            String striddrink = jsonObject.getString("ID");
                             String strdrink = jsonObject.getString("Drink");
                             String strpicture = jsonObject.getString("Picture");
                             String strprice = jsonObject.getString("Price");
@@ -118,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
                             break;
                         default:
                             // update ordertable
-                            String stridd = jsonObject.getString("ID");
+                            String stridorder = jsonObject.getString("ID");
                             String strorder = jsonObject.getString("Drink");
                             String strofficer = jsonObject.getString("Officer");
                             String strdesk = jsonObject.getString("Desk");

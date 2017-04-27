@@ -1,9 +1,12 @@
-package comsci.kwan.healthtest;
+package comsci.kwan.healthtest.healthyshop;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import comsci.kwan.healthtest.R;
+import comsci.kwan.healthtest.Starts;
 
 public class EnterYourName extends AppCompatActivity {
 

@@ -16,7 +16,7 @@ public class DrinkTable {
     private SQLiteDatabase readSqLiteDatabase;
 
     public static final String DRINK_TABLE = "drinkTable";
-    public static final String COLUMN_ID_FOOD = "_id";
+    public static final String COLUMN_ID_DRINK = "_id";
     public static final String COLUMN_DRINK = "Drink";
     public static final String COLUMN_SOURCE = "Source";
     public static final String COLUMN_PRICE = "Price";

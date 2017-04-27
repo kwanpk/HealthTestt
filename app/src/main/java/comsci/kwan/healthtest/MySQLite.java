@@ -9,8 +9,10 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 
 public class MySQLite extends SQLiteOpenHelper{
-    private static final String DATABASE_NAME = "health1.db";//กำหนดชื่อไฟล์ Database
+    private static final String DATABASE_NAME = "health2.db";//กำหนดชื่อไฟล์ Database
     private static final int DATABASE_VERSION = 1;
+    private static final String CREATE_USER_TABLE = "create table uerTABLE"+
+            "(_id integer primary key, User text);";
     private static final String CREATE_DRINK_TABLE = "create table drinkTABLE"+
             "(_id integer primary key, Drink text, Picture text, Price text);";
     private static final String CREATE_ORDER_TABLE = "create table orderTABLE"+
@@ -23,7 +25,7 @@ public class MySQLite extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-
+        sqLiteDatabase.execSQL(CREATE_USER_TABLE);
         sqLiteDatabase.execSQL(CREATE_DRINK_TABLE);
         sqLiteDatabase.execSQL(CREATE_ORDER_TABLE);
 

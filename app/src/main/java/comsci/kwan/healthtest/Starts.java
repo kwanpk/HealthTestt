@@ -7,6 +7,8 @@ import android.os.Bundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import comsci.kwan.healthtest.healthyshop.MainActivity;
+
 public class Starts extends AppCompatActivity {
     private static final long SPLASH_TIME=2000;
 

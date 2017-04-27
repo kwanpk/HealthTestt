@@ -11,9 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
-        <activity android:name=".MenuHealth" />
-        <activity android:name=".Detail1" />
+        <activity android:name=".healthyshop.MainActivity" />
+        <activity android:name=".healthyshop.MenuHealth" />
         <activity android:name=".Starts">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,11 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ShowOrder" />
-        <activity android:name=".EnterYourName">
-
-        </activity>
-
+        <activity android:name=".healthyshop.ShowOrder" />
+        <activity android:name=".healthyshop.EnterYourName"></activity>
     </application>
 
 </manifest>
