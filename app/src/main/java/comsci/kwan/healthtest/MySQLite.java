@@ -9,14 +9,14 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 
 public class MySQLite extends SQLiteOpenHelper{
-    private static final String DATABASE_NAME = "health2.db";//กำหนดชื่อไฟล์ Database
+    private static final String DATABASE_NAME = "health.db";//กำหนดชื่อไฟล์ Database
     private static final int DATABASE_VERSION = 1;
-    private static final String CREATE_USER_TABLE = "create table uerTABLE"+
+    private static final String CREATE_USER_TABLE = "create table userTABLE"+
             "(_id integer primary key, User text);";
     private static final String CREATE_DRINK_TABLE = "create table drinkTABLE"+
-            "(_id integer primary key, Drink text, Picture text, Price text);";
+            "(_id integer primary key, Drink text, Source text, Price text);";
     private static final String CREATE_ORDER_TABLE = "create table orderTABLE"+
-            "(_id integer primary key, officer text ,Drink text, Desk text, Item text);";
+            "(_id integer primary key, officer text ,Drink text, Desk text, Item text,TotalPrice text);";
 
     public MySQLite(Context context){
         super(context, DATABASE_NAME,null,DATABASE_VERSION);

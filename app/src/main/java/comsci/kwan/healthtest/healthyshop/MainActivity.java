@@ -43,9 +43,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void testAddValue(){
-        objUserTABLE.addNewUser("User");
+        objUserTABLE.addNewUser("testUser");
         objDrinkTABLE.addNewDrink("testDrink","testPicture","testPrice");
-        objOrderTABLE.addNewOrder("testOfficer","testDrink","testDesk","testItem");
+        objOrderTABLE.addNewOrder("testOfficer","testDrink","testDesk","testTotal","testItem");
 
     }
 
@@ -109,13 +109,17 @@ public class MainActivity extends AppCompatActivity {
                 for (int i = 0; i<jsonArray.length(); i++){
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                     switch (intTimes){
+                        case 0:
+                            String struser = jsonObject.getString("User");
+                           long addValue = objUserTABLE.addNewUser(struser);
+                            break;
                         case 1:
                             //update drinktable
                             String striddrink = jsonObject.getString("ID");
                             String strdrink = jsonObject.getString("Drink");
-                            String strpicture = jsonObject.getString("Picture");
+                            String strsource = jsonObject.getString("Source");
                             String strprice = jsonObject.getString("Price");
-                            objDrinkTABLE.addNewDrink(strdrink,strpicture,strprice);
+                            addValue = objDrinkTABLE.addNewDrink(strdrink, strsource, strprice);
                             break;
                         default:
                             // update ordertable
@@ -124,7 +128,8 @@ public class MainActivity extends AppCompatActivity {
                             String strofficer = jsonObject.getString("Officer");
                             String strdesk = jsonObject.getString("Desk");
                             String strItem = jsonObject.getString("Item");
-                            objOrderTABLE.addNewOrder(strorder,strofficer,strdesk,strItem);
+                            String strTotal = jsonObject.getString("TotalPrice");
+                            addValue = objOrderTABLE.addNewOrder(strorder,strofficer,strdesk,strItem,strTotal);
                             break;
                     }
                 }

@@ -29,6 +29,6 @@ public class UserTable {
         ContentValues objContentValues = new ContentValues();
         objContentValues.put(COLUMN_USER,strUser);
 
-        return readSqLiteDatabase.insert(USER_TABLE,null, objContentValues);
+        return writeSqLiteDatabase.insert(USER_TABLE,null, objContentValues);
     }
 }
