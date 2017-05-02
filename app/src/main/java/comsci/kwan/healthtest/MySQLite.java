@@ -11,12 +11,12 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class MySQLite extends SQLiteOpenHelper{
     private static final String DATABASE_NAME = "health.db";//กำหนดชื่อไฟล์ Database
     private static final int DATABASE_VERSION = 1;
-    private static final String CREATE_USER_TABLE = "create table userTABLE"+
-            "(_id integer primary key, User text);";
-    private static final String CREATE_DRINK_TABLE = "create table drinkTABLE"+
-            "(_id integer primary key, Drink text, Source text, Price text);";
-    private static final String CREATE_ORDER_TABLE = "create table orderTABLE"+
-            "(_id integer primary key, officer text ,Drink text, Desk text, Item text,TotalPrice text);";
+    private static final String CREATE_USER_TABLE = "create table Usertable"+
+            "(User text);";
+    private static final String CREATE_DRINK_TABLE = "create table Drinktable"+
+            "(ID_Drink integer primary key, Name text,Detail text, Source text, Price text);";
+    private static final String CREATE_ORDER_TABLE = "create table Ordertable"+
+            "(ID_Order integer primary key, Name text ,Desk text, Date text, Item text, Officer text , TotalPrice text);";
 
     public MySQLite(Context context){
         super(context, DATABASE_NAME,null,DATABASE_VERSION);

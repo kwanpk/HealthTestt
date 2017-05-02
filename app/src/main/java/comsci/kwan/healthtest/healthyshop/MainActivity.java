@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -30,24 +31,21 @@ public class MainActivity extends AppCompatActivity {
     private OrderTable objOrderTABLE;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        connectedSQLite();//เชื่อมต่อกับ SQLite
 
-        testAddValue();//ทดสอบ เพิ่มข้อมูลลง SQLite
 
-        synJSONtoSQLite();
+            connectedSQLite();//เชื่อมต่อกับ SQLite
 
-    }
-    public void testAddValue(){
-        objUserTABLE.addNewUser("testUser");
-        objDrinkTABLE.addNewDrink("testDrink","testPicture","testPrice");
-        objOrderTABLE.addNewOrder("testOfficer","testDrink","testDesk","testTotal","testItem");
+            synJSONtoSQLite();
+        }
 
-    }
+
+
 
     private void connectedSQLite(){
         objUserTABLE = new UserTable(this);
@@ -63,9 +61,9 @@ public class MainActivity extends AppCompatActivity {
             //variable
             InputStream objInputStream = null;
             String strJSON = null;
-            String strUserURL = "http://57110206600.sci.dusit.ac.th/user.php";
-            String strDrinkURL = "http://57110206600.sci.dusit.ac.th/drink.php";
-            String strOrderURL = "http://57110206600.sci.dusit.ac.th/order.php";
+            String strUserURL = "http://57110206600.sci.dusit.ac.th/userk.php";
+            String strDrinkURL = "http://57110206600.sci.dusit.ac.th/drinkk.php";
+            String strOrderURL = "http://57110206600.sci.dusit.ac.th/orderk.php";
             HttpPost objHttpPost;
 
             // create inputstream
@@ -111,25 +109,27 @@ public class MainActivity extends AppCompatActivity {
                     switch (intTimes){
                         case 0:
                             String struser = jsonObject.getString("User");
-                           long addValue = objUserTABLE.addNewUser(struser);
+                            objUserTABLE.addNewUser(struser);
                             break;
                         case 1:
                             //update drinktable
-                            String striddrink = jsonObject.getString("ID");
-                            String strdrink = jsonObject.getString("Drink");
+                            // String striddrink = jsonObject.getString("ID");
+                            String strdrink = jsonObject.getString("Name");
+                            String strdetail = jsonObject.getString("Detail");
                             String strsource = jsonObject.getString("Source");
                             String strprice = jsonObject.getString("Price");
-                            addValue = objDrinkTABLE.addNewDrink(strdrink, strsource, strprice);
+                            objDrinkTABLE.addNewDrink(strdrink, strdetail,strsource, strprice);
                             break;
                         default:
                             // update ordertable
-                            String stridorder = jsonObject.getString("ID");
-                            String strorder = jsonObject.getString("Drink");
-                            String strofficer = jsonObject.getString("Officer");
+                            // String stridorder = jsonObject.getString("ID_Order");
+                            String strorder = jsonObject.getString("Name");
                             String strdesk = jsonObject.getString("Desk");
-                            String strItem = jsonObject.getString("Item");
-                            String strTotal = jsonObject.getString("TotalPrice");
-                            addValue = objOrderTABLE.addNewOrder(strorder,strofficer,strdesk,strItem,strTotal);
+                            String strdate = jsonObject.getString("Date");
+                            String stritem = jsonObject.getString("Item");
+                            String strofficer = jsonObject.getString("Officer");
+                            String strtotal = jsonObject.getString("TotalPrice");
+                            objOrderTABLE.addNewOrder(strorder, strdesk, strdate, stritem, strofficer, strtotal);
                             break;
                     }
                 }

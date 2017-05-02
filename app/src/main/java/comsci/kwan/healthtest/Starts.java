@@ -7,6 +7,7 @@ import android.os.Bundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import comsci.kwan.healthtest.healthyshop.EnterYourName;
 import comsci.kwan.healthtest.healthyshop.MainActivity;
 
 public class Starts extends AppCompatActivity {
@@ -20,7 +21,7 @@ public class Starts extends AppCompatActivity {
             TimerTask task=new TimerTask() {
                 @Override
                 public void run() {
-                    Intent mainIntent=new Intent().setClass(Starts.this,MainActivity.class);
+                    Intent mainIntent=new Intent().setClass(Starts.this,EnterYourName.class);
                     startActivity(mainIntent);
                     finish();
                 }
